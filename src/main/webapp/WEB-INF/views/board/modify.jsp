@@ -24,8 +24,8 @@
 					<input type="hidden" name="${_csrf.parameterName }" value="${_csrf.token }">
 					<input type='hidden' name='pageNum' value='<c:out value="${cri.pageNum }" />'/>
 					<input type='hidden' name='amount' value='<c:out value="${cri.amount }" />'/>
-					<input type="hidden" name='type' value='${pageMaker.cri.type }'>
-		            <input type="hidden" name='keyword' value='${pageMaker.cri.keyword }'>
+					<input type="hidden" name='type' value='${cri.type }'>
+		            <input type="hidden" name='keyword' value='${cri.keyword }'>
 					<div class="form-group">
 						<label>Bno</label><input class="form-control" name="bno"
 						value='<c:out value="${board.bno }"/>' readonly="readonly">
