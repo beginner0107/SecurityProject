@@ -45,11 +45,9 @@
 				  	<sec:authentication property="principal" var="pinfo"/>
 				  	    <sec:authorize access="isAuthenticated()">
 				  	      <c:if test="${pinfo.username eq board.writer }">
-					        <button id="modalModBtn" type="button" class="btn btn-warning">Modify</button>
+							<button data-oper='modify' class="btn btn-default">Modify</button>
 				  	      </c:if>
 				  	    </sec:authorize>
-				  	    
-					<button data-oper='modify' class="btn btn-default">Modify</button>
 					<!-- onclick="location.href='/board/modify?bno=<c:out value="${board.bno}"/>'" -->
 					<button data-oper='list' class="btn btn-info">List</button>
 					<!-- onclick="location.href='/board/list'" -->
@@ -397,6 +395,7 @@ $(function(){
 	modalRemoveBtn.on("click", function(e){
 	  
 	  var rno = modal.data("rno");
+	  var replyer = modalInputReplyer.val();
 	  
 	  console.log("RNO: " + rno);
 	  console.log("REPLYER" + replyer);
@@ -419,7 +418,7 @@ $(function(){
 		  
 	  }
 	  
-	  replyService.remove(rno, function(result){
+	  replyService.remove(rno, originalReplyer, function(result){
 		 
 		  alert(result);
 		  modal.modal("hide");
